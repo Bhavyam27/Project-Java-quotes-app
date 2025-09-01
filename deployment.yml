@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaquotes-delpoyment
+  namespace: java-ns
+spec:
+  selector:
+    matchLabels:
+      app: javaquotes-app
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: javaquotes-app
+    spec:
+      containers:
+      - name: java-con
+        image: bhavyaam/java_quotes_app
+        ports:
+        - containerPort: 8000
+
